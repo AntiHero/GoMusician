@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Musician</title>
+  <link rel='stylesheet' href='css/style.css'>
+  
+</head>
+<body>
+  <header>
+    <a href='#' class='logo'><span>by</span>Aleksandr Schemelev</a>
+    <nav>
+      <ul>
+        <li><a href='#'>Home</a></li>
+        <li><a href='#'>About</a></li>
+        <li><a href='#'>Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="wrapper">
+    <section class="hero">
+      <div class="inner">
+        <div class="clipper">
+          <h1>Go Musician</h1>
+        </div>
+        <div class="anim-panel">
+          <p>Start touring all over the place and melting the hearts of the chicks.</p>
+          <a href='#' class='read-btn primary'>Get Famous</a>
+        </div>
+      </div>
+    </section>
+    <section class="sidebar">
+      <div class="inner">
+        <div class="clipper">
+          <h2>Featured</h2>
+        </div>
+        <div class='anim-panel'>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia eos sunt porro tempora perferendis. Officiis tempore praesentium, minus explicabo repudiandae expedita obcaecati at sequi nobis consectetur dolorum, voluptatum aut necessitatibus.</p>
+          <a href='#' class='read-btn'>Read more</a>
+        </div>
+      </div>
+    </section>
+    <section class="subscribe">
+      <div class="inner">
+        <div class="clipper">
+          <h2>Subscribe</h2>
+        </div>
+        <div class="anim-panel">
+          <p>Get the latest updates about this musician</p>
+          <input type="text" name='email' placeholder='Email Address'>
+          <button class="cta">Subscribe Now</button>
+        </div>
+      </div>
+    </section>
+  </div>  
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js'></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", (e) => {
+      window.addEventListener('load', (e) => {
+        document.body.style.display = 'block';
+        let timeline = new TimelineMax();
+          timeline.from('section', 2, {
+            opacity: 0,
+            scale: .5,
+            ease: Power4.easeOut
+          }, .2)
+
+          timeline.staggerFrom('h1, h2', .5, {
+            opacity: 0,
+            y: -40,
+            ease: Power2.easeInOut
+          }, .5, "-=2")
+
+          timeline.staggerFrom('.anim-panel', 1, {
+            opacity: 0,
+            y: -40,
+            ease: Power2.easeInOut
+          }, .5, "-=1.5")
+            }, false)
+    });
+   
+  </script>
+</body>
+</html>
