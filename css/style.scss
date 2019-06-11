@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,600,700,800,900&display=swap');
+$primary-color: #fae05d;
+$submit-btn-bg-color: black;
+$submit-btn-color: white;
+
+body, html {
+  margin: 0;
+}
+
+body {
+  height: 100%;
+  font-family: 'Montserrat';
+  display: none;
+}
+
+header {
+  position: absolute;
+  padding: 1em 3em;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100% - 6em);
+  background: white;
+  font-size: 16px;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  a.logo {
+    font-weight: bold;
+    text-transform: uppercase;
+
+    span {
+      text-transform: none;
+    }
+  }
+
+  nav ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    margin: 0;
+    margin-right: .5rem;
+    padding: 0;
+    
+    li a {
+      text-transform: uppercase;
+      font-weight: 600;
+      padding-left: 2em;
+      font-size: 16px;
+      transition: all .4s;
+      display: inline-block;
+      box-sizing: border-box;
+    }
+
+    li a:after {
+      display:block;
+      content: '';
+      border-bottom: solid 2px black;  
+      transform: scaleX(0);  
+      transition: transform 250ms ease-in-out;
+    }
+
+    li a:hover:after{ transform: scaleX(1); transform-origin: 0% 100%; }
+  }
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: auto;
+
+  section {
+    padding: 4em 3em;
+
+    h1, h2, .read-btn {
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+    }
+
+    .read-btn {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/2621168/arrow.svg') no-repeat;
+      background-size: 8px;
+      background-position: 5px 2px;
+      padding-left: 1em;
+    }
+
+    .primary {
+      padding: 1.5em 1.5em 1.5em calc(3em + 25px);
+      background-position: 3em 1.6em;
+      border: 1px solid gray;
+      border-left: none;
+      display: inline-block;
+      margin-top: 3em;
+      margin-left: calc(-3em - 1px);
+    }
+
+    .clipper {
+      overflow: hidden;
+    }
+  }
+
+  section.hero {
+    padding-top: 8em;
+    background: url('../images/hero.jpg');
+    background-size: cover;
+
+    p {
+      width: 70%;
+      font-size: 1.2rem;
+      margin-bottom: 0;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+    }
+  }
+
+  section.sidebar, section.subscribe {
+    font-size: .9rem;
+    line-height: 1.6rem;
+  }
+
+  section.sidebar {
+    background: $primary-color;
+
+    .read-btn {
+      margin-top: 2em;
+      display: block;
+      background-position: 0 .2em;
+    }
+  }
+
+  section.subscribe {
+    input {
+      width: calc(100% - 2em);
+      padding: .8em;
+      font-family: 'Montserrat';
+      margin-bottom: 1em;
+    }
+
+    button {
+      width: 100%;
+      background: $submit-btn-bg-color;
+      color: $submit-btn-color;
+      padding: 1em;
+      border: none;
+      font-family: 'Montserrat';
+    }
+  }
+}
+
+@media only screen and (min-width: 1020px) {
+  header {
+    background: none;
+
+    nav{
+      margin-right: calc(15% - 175px);
+    }
+  }
+
+  .wrapper {
+    grid-template-columns: 70% auto;
+    grid-template-rows: 60% auto;
+    grid-template-areas:
+      "hero featured"
+      "hero subscribe";
+    height: 100vh;
+  }
+
+  section.hero {
+    grid-area: hero;
+  }
+
+  section.subscribe {
+    grid-area: subscribe;
+  }
+
+  section.featured {
+    grid-area: featured;
+  }
+
+  section {
+    display: grid;
+    grid-template-rows: auto;
+    align-items: center;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  html {
+    p {font-size: 18px;}
+  }
+}
